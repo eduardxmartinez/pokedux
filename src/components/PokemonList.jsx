@@ -11,8 +11,4 @@ const PokemonList = ({pokemons}) => {
   )
 }
 
-PokemonList.defaultProps = {
-  pokemons: Array(10).fill("")
-}
-
 export default PokemonList;
