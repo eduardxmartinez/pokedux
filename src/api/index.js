@@ -10,3 +10,12 @@ export const getPokemon = async () => {
     return console.log(err);
   }
 };
+
+export const getPokemonDetails = async (pokemon) => {
+  try {
+    const res = await axios.get(pokemon.url);
+    return res.data;
+  } catch (err) {
+    return console.log(err);
+  }
+}
