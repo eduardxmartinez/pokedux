@@ -4,26 +4,19 @@ import Searcher from './components/Searchbar';
 import PokemonList from "./components/PokemonList"
 import logo from "./statics/logo.svg"
 import { useEffect } from 'react';
-import { getPokemon } from './api';
-import { getPokemonWithDetails, setLoading } from './actions';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-
+import { fetchPokemonsWithDetails } from './slices/dataSlice';
 
 function App() {
-  const pokemons = useSelector(state => state.getIn(["data","pokemons"], shallowEqual)).toJS();
-  const loading = useSelector(state => state.getIn(["ui","loading"]));
+  const pokemons = useSelector((state) => state.data.pokemons, shallowEqual);
+
+  const loading = useSelector((state) => state.ui.loading);
+
   const dispatch = useDispatch();
 
-  useEffect(()=>{
-    const fetchPokemons = async () => {
-      dispatch(setLoading(true));
-      const pokemonsRes = await getPokemon();
-      dispatch(getPokemonWithDetails(pokemonsRes));
-      dispatch(setLoading(false));
-    };
-    
-    fetchPokemons();
-  },[])
+  useEffect(() => {
+    dispatch(fetchPokemonsWithDetails());
+  }, []);
 
   return (
     <div className="App">
