@@ -15,14 +15,14 @@ const PokemonCard = ({name,image,abilities, types, id, favorite}) => {
   return (
     <Card
       title={name}
-      key={name}
+      key={id}
       cover={<img src={image} alt={name} />}
       extra={<StarButton isFavorite={favorite} onClick={()=>handleFavorite()} />}
     >
       <Meta description={typesString} />
       <h2>Abilities</h2>
       {abilities.map((ability) => {
-        return <p>{ability.ability.name}</p>;
+        return <p key={id+ability.ability.name}>{ability.ability.name}</p>;
       })}
     </Card>
   );

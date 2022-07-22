@@ -12,6 +12,8 @@ function App() {
 
   const loading = useSelector((state) => state.ui.loading);
 
+  const search = useSelector((state) => state.search.search);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,13 +26,13 @@ function App() {
       <img src={logo} alt="Pokedux"/>
       </Col>
       <Col span={8} offset={8}>
-        <Searcher />
+        <Searcher/>
       </Col>
       {loading ? 
       (<Col offset={12}>
       <Spin className='spin' spinning={true} size={'large'}/>
       </Col>)
-      : (<PokemonList pokemons={pokemons}/>)}
+      : (<PokemonList pokemons={pokemons} search={search}/>)}
     </div>
   );
 }
