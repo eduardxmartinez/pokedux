@@ -1,7 +1,7 @@
 {
   "name": "pokedux",
   "version": "0.1.0",
-  "homepage": "https://eduardxmartinez.github.io",
+  "homepage": "https://eduardxmartinez.github.io/pokedux",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
