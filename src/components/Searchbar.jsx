@@ -1,5 +1,5 @@
 import { Input } from "antd";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setSearch } from "../slices/searchSlice";
 
 const Searcher = () => {
